@@ -7,20 +7,18 @@
 //  https://github.com/ivansaul
 //
 
+import SDWebImageSwiftUI
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            CheatsheetsView()
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .environment(CheatsheetsViewModel.preview)
 }
