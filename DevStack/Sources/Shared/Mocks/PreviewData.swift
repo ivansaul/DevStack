@@ -23,3 +23,9 @@ extension Cheatsheet {
         return [Cheatsheet].preview.first!
     }
 }
+
+extension CheatsheetsViewModel {
+    static let preview: CheatsheetsViewModel = .init(
+        cheatsheetsDataService: MockCheatsheetsDataService()
+    )
+}

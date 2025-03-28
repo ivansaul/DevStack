@@ -7,8 +7,6 @@
 //  https://github.com/ivansaul
 //
 
-import SDWebImage
-import SDWebImageSVGNativeCoder
 import SwiftUI
 
 @main
