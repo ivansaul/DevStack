@@ -25,6 +25,7 @@ let project = Project(
                 .external(name: "SDWebImageSwiftUI"),
                 .external(name: "SDWebImageSVGNativeCoder"),
                 .external(name: "Splash"),
+                .external(name: "Factory"),
             ],
             settings: .settings(
                 base: ["OTHER_LDFLAGS": "$(inherited) -ObjC"]

@@ -23,5 +23,6 @@ let package = Package(
         .package(url: "https://github.com/SDWebImage/SDWebImageSwiftUI", from: "3.1.3"),
         .package(url: "https://github.com/SDWebImage/SDWebImageSVGNativeCoder", from: "0.2.0"),
         .package(url: "https://github.com/JohnSundell/Splash", from: "0.16.0"),
+        .package(url: "https://github.com/hmlongco/Factory", exact: "2.3.2"),
     ]
 )

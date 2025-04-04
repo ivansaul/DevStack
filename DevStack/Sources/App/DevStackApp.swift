@@ -7,20 +7,28 @@
 //  https://github.com/ivansaul
 //
 
+import Factory
 import SwiftUI
 
 @main
 struct DevStackApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
-    @State private var cheatsheetViewModel: CheatsheetsViewModel = .init(
-        cheatsheetsDataService: CheatsheetsDataService()
-    )
-
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(cheatsheetViewModel)
         }
+    }
+}
+
+extension Container {
+    var cheatsheetsDataService: Factory<CheatsheetsDataServiceProtocol> {
+        self { CheatsheetsDataService() }
+            .shared
+    }
+
+    var cheatsheetsViewModel: Factory<CheatsheetsViewModel> {
+        self { CheatsheetsViewModel(cheatsheetsDataService: self.cheatsheetsDataService()) }
+            .cached
     }
 }

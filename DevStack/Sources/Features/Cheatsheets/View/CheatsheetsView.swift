@@ -7,10 +7,11 @@
 //  https://github.com/ivansaul
 //
 
+import Factory
 import SwiftUI
 
 struct CheatsheetsView: View {
-    @Environment(CheatsheetsViewModel.self) private var cheatsheetsViewModel
+    @Injected(\.cheatsheetsViewModel) private var cheatsheetsViewModel
 
     var body: some View {
         @Bindable var cheatsheetsViewModel = cheatsheetsViewModel
@@ -53,6 +54,5 @@ struct CheatsheetsView: View {
 #Preview {
     NavigationStack {
         CheatsheetsView()
-            .environment(CheatsheetsViewModel.preview)
     }
 }
