@@ -17,7 +17,7 @@ struct CheatsheetsView: View {
         @Bindable var cheatsheetsViewModel = cheatsheetsViewModel
 
         ZStack {
-            Color(uiColor: .secondarySystemBackground)
+            Color.theme.background2
                 .ignoresSafeArea()
 
             ScrollView {
@@ -29,7 +29,7 @@ struct CheatsheetsView: View {
                             title: cheatsheet.title,
                             leadingIcon: .url(cheatsheet.icon),
                             trailingIcon: "chevron.right",
-                            backgroundIconColor: .init(hex: cheatsheet.background)
+                            backgroundIconColor: Color(hex: cheatsheet.background)
                         )
                     }
                 }

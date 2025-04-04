@@ -44,10 +44,10 @@ struct CachedImageView<C: View, P: View>: View {
         } placeholder: {
             ProgressView()
         }
-        .foregroundStyle(.white)
+        .foregroundStyle(Color.theme.white)
         .frame(width: 100, height: 100)
         .padding()
-        .background(.blue)
+        .background(Color.theme.blue)
         .clipShape(RoundedRectangle(cornerRadius: 25.0))
 
         CachedImageView(url: url1) { image in

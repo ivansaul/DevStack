@@ -15,7 +15,7 @@ struct CheatsheetDetailView: View {
     let sectionSheet: SectionSheet
     var body: some View {
         ZStack {
-            Color(uiColor: .secondarySystemBackground)
+            Color.theme.background2
                 .ignoresSafeArea()
 
             ScrollView {

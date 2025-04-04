@@ -18,7 +18,7 @@ struct CheatsheetRowView: View {
     var body: some View {
         HStack {
             leadingIconView(icon: leadingIcon)
-                .foregroundStyle(.white)
+                .foregroundStyle(Color.theme.white)
                 .frame(width: 20, height: 20)
                 .padding(5)
                 .background(backgroundIconColor)
@@ -26,17 +26,17 @@ struct CheatsheetRowView: View {
 
             Text(title)
                 .fontWeight(.semibold)
-                .tint(.primary)
+                .tint(Color.theme.label)
                 .multilineTextAlignment(.leading)
 
             Spacer()
 
             Image(systemName: trailingIcon)
                 .font(.caption)
-                .tint(Color(uiColor: .systemGray))
+                .tint(Color.theme.gray)
         }
         .padding()
-        .background(Color(uiColor: .tertiarySystemBackground))
+        .background(Color.theme.background3)
         .clipShape(RoundedRectangle(cornerRadius: 15))
         .padding(.bottom, 5)
     }
@@ -60,7 +60,7 @@ struct CheatsheetRowView: View {
 
 #Preview {
     ZStack {
-        Color(uiColor: .secondarySystemBackground)
+        Color.theme.background2
             .ignoresSafeArea()
 
         CheatsheetRowView(
