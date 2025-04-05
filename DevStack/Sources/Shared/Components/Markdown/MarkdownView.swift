@@ -89,16 +89,12 @@ struct MarkdownView: View {
 
 #Preview {
     NavigationStack {
-        ZStack {
-            Color.theme.background2
-                .ignoresSafeArea()
-
-            ScrollView {
-                MarkdownView(content: Cheatsheet.preview.sections.first!.content)
-            }
-            .navigationTitle("Getting Started")
-            .scrollIndicators(.hidden)
-            .padding(.horizontal)
+        ScrollView {
+            MarkdownView(content: Cheatsheet.preview.sections.first!.content)
         }
+        .navigationTitle("Getting Started")
+        .scrollIndicators(.hidden)
+        .padding(.horizontal)
+        .backgroundApp()
     }
 }

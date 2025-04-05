@@ -14,17 +14,13 @@ import SwiftUI
 struct CheatsheetDetailView: View {
     let sectionSheet: SectionSheet
     var body: some View {
-        ZStack {
-            Color.theme.background2
-                .ignoresSafeArea()
-
-            ScrollView {
-                MarkdownView(content: self.sectionSheet.content)
-                    .padding(.horizontal)
-            }
-            .scrollIndicators(.never)
+        ScrollView {
+            MarkdownView(content: self.sectionSheet.content)
+                .padding(.horizontal)
         }
+        .scrollIndicators(.never)
         .navigationTitle(sectionSheet.title)
+        .backgroundApp()
     }
 }
 

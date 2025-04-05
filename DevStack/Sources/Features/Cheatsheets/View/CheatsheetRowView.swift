@@ -59,16 +59,12 @@ struct CheatsheetRowView: View {
 }
 
 #Preview {
-    ZStack {
-        Color.theme.background2
-            .ignoresSafeArea()
-
-        CheatsheetRowView(
-            title: "Python",
-            leadingIcon: .system("text.viewfinder"),
-            trailingIcon: "chevron.right"
-        )
-    }
+    CheatsheetRowView(
+        title: "Python",
+        leadingIcon: .system("text.viewfinder"),
+        trailingIcon: "chevron.right"
+    )
+    .backgroundApp()
 }
 
 extension CheatsheetRowView {

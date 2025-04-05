@@ -16,32 +16,28 @@ struct CheatsheetsView: View {
     var body: some View {
         @Bindable var cheatsheetsViewModel = cheatsheetsViewModel
 
-        ZStack {
-            Color.theme.background2
-                .ignoresSafeArea()
+        ScrollView {
+            Text("Here are some some cheat sheets and quick references contributed by open source angels.")
 
-            ScrollView {
-                Text("Here are some some cheat sheets and quick references contributed by open source angels.")
-
-                ForEach(cheatsheetsViewModel.filteredCheatSheets) { cheatsheet in
-                    NavigationLink(value: cheatsheet) {
-                        CheatsheetRowView(
-                            title: cheatsheet.title,
-                            leadingIcon: .url(cheatsheet.icon),
-                            trailingIcon: "chevron.right",
-                            backgroundIconColor: Color(hex: cheatsheet.background)
-                        )
-                    }
+            ForEach(cheatsheetsViewModel.filteredCheatSheets) { cheatsheet in
+                NavigationLink(value: cheatsheet) {
+                    CheatsheetRowView(
+                        title: cheatsheet.title,
+                        leadingIcon: .url(cheatsheet.icon),
+                        trailingIcon: "chevron.right",
+                        backgroundIconColor: Color(hex: cheatsheet.background)
+                    )
                 }
             }
-            .padding(.horizontal)
-            .scrollIndicators(.hidden)
-            .animation(.easeIn, value: cheatsheetsViewModel.searchText)
         }
+        .padding(.horizontal)
+        .scrollIndicators(.hidden)
+        .animation(.easeIn, value: cheatsheetsViewModel.searchText)
         .navigationTitle("Cheat Sheets")
         .navigationBarTitleDisplayMode(.automatic)
         .searchable(text: $cheatsheetsViewModel.searchText)
         .autocorrectionDisabled(true)
+        .backgroundApp()
         .navigationDestination(for: Cheatsheet.self) { cheatsheet in
             CheatsheetContentView(cheatsheet: cheatsheet)
         }
