@@ -44,6 +44,15 @@ struct CheatsheetsView: View {
         .task {
             await cheatsheetsViewModel.fetchCheatSheets()
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink {
+                    SettingsView()
+                } label: {
+                    Image(systemName: "gear")
+                }
+            }
+        }
     }
 }
 

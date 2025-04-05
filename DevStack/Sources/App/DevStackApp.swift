@@ -22,13 +22,27 @@ struct DevStackApp: App {
 }
 
 extension Container {
+    // MARK: DataService
+
     var cheatsheetsDataService: Factory<CheatsheetsDataServiceProtocol> {
         self { CheatsheetsDataService() }
             .shared
     }
 
+    var keyValueStorageDataService: Factory<KeyValueStorageDataService> {
+        self { UserDefaultsStorageDataService(defaults: UserDefaults.standard) }
+            .singleton
+    }
+
+    // MARK: ViewModel
+
     var cheatsheetsViewModel: Factory<CheatsheetsViewModel> {
         self { CheatsheetsViewModel(cheatsheetsDataService: self.cheatsheetsDataService()) }
             .cached
+    }
+
+    var appThemeViewModel: Factory<AppThemeViewModel> {
+        self { AppThemeViewModel(keyValueStorageDataService: self.keyValueStorageDataService()) }
+            .singleton
     }
 }

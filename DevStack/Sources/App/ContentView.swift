@@ -7,18 +7,20 @@
 //  https://github.com/ivansaul
 //
 
-import SDWebImageSwiftUI
+import Factory
 import SwiftUI
 
 struct ContentView: View {
+    @Injected(\.appThemeViewModel) private var appThemeViewModel
+
     var body: some View {
         NavigationStack {
             CheatsheetsView()
         }
+        .preferredColorScheme(appThemeViewModel.colorSchema)
     }
 }
 
 #Preview {
     ContentView()
-        .environment(CheatsheetsViewModel.preview)
 }
