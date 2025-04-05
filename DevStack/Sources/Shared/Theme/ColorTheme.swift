@@ -22,6 +22,7 @@ struct ColorTheme {
     let white = Color(.white)
     let gray = Color(.gray)
     let blue = Color(.blue)
+    let clear = Color(.clear)
 
     let background = Color(.systemBackground)
     let background2 = Color(.secondarySystemBackground)

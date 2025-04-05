@@ -20,8 +20,16 @@ struct MarkdownView: View {
             .markdownBlockStyle(\.codeBlock) {
                 self.codeBlock($0)
             }
+            .markdownTextStyle(\.text) {
+                BackgroundColor(Color.theme.clear)
+                FontSize(16)
+            }
+            .markdownTextStyle(\.code) {
+                ForegroundColor(Color.theme.label)
+                BackgroundColor(Color.theme.gray.opacity(0.2))
+            }
             .markdownCodeSyntaxHighlighter(.splash(theme: self.theme))
-            .markdownTheme(.customTheme)
+            .markdownTheme(.gitHub)
     }
 
     @ViewBuilder
@@ -44,13 +52,12 @@ struct MarkdownView: View {
                 }, label: {
                     Image(systemName: "doc.on.doc")
                         .font(.caption)
-                        .opacity(0.5)
                 })
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 .padding()
             }
         }
-        .background(Color(.tertiarySystemBackground))
+        .background(Color.theme.background3)
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .markdownMargin(top: .zero, bottom: .em(0.8))
     }
@@ -58,10 +65,10 @@ struct MarkdownView: View {
     private var theme: Splash.Theme {
         switch self.colorScheme {
         case .dark:
-            return .sundellsColors(withFont: .init(size: 16))
+            return .catppuccinDark(withFont: .init(size: 16))
 
         case .light:
-            return .sundellsColors(withFont: .init(size: 16))
+            return .catppuccinLight(withFont: .init(size: 16))
 
         default:
             return .sundellsColors(withFont: .init(size: 16))
@@ -83,7 +90,7 @@ struct MarkdownView: View {
 #Preview {
     NavigationStack {
         ZStack {
-            Color(uiColor: .secondarySystemBackground)
+            Color.theme.background2
                 .ignoresSafeArea()
 
             ScrollView {
