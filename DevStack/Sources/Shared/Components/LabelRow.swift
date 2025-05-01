@@ -9,22 +9,22 @@
 
 import SwiftUI
 
-struct LabelRow<T: View>: View {
+struct LabelRow<Trailing: View>: View {
     let title: String
     let imageName: String?
     let color: Color?
-    let trailing: () -> T
+    let trailing: Trailing
 
     init(
         _ title: String,
         imageName: String? = nil,
         color: Color = Color.theme.blue,
-        @ViewBuilder trailing: @escaping () -> T = { EmptyView() }
+        @ViewBuilder trailing: () -> Trailing = { EmptyView() }
     ) {
         self.title = title
         self.imageName = imageName
         self.color = color
-        self.trailing = trailing
+        self.trailing = trailing()
     }
 
     var body: some View {
@@ -39,7 +39,7 @@ struct LabelRow<T: View>: View {
             }
             Text(title)
             Spacer()
-            trailing()
+            trailing
         }
     }
 }
