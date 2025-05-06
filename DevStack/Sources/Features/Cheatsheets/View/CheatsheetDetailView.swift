@@ -7,15 +7,13 @@
 //  https://github.com/ivansaul
 //
 
-import MarkdownUI
-import Splash
 import SwiftUI
 
 struct CheatsheetDetailView: View {
     let sectionSheet: SectionSheet
     var body: some View {
         ScrollView {
-            MarkdownView(content: self.sectionSheet.content)
+            MarkdownView(content: sectionSheet.content)
                 .padding(.horizontal)
         }
         .scrollIndicators(.never)
@@ -26,6 +24,6 @@ struct CheatsheetDetailView: View {
 
 #Preview {
     NavigationStack {
-        CheatsheetDetailView(sectionSheet: Cheatsheet.preview.sections.first!)
+        CheatsheetDetailView(sectionSheet: .preview)
     }
 }

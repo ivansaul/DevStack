@@ -11,4 +11,5 @@ import Foundation
 
 protocol CheatsheetsDataServiceProtocol {
     func fetchCheatsheets() async throws -> [Cheatsheet]
+    func fetchCheatsheet(byID id: String) async throws -> Cheatsheet
 }

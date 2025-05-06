@@ -22,6 +22,13 @@ private struct AppBackgroundModifier: ViewModifier {
 
 extension View {
     func backgroundApp() -> some View {
-        self.modifier(AppBackgroundModifier())
+        modifier(AppBackgroundModifier())
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func redacted(when condition: @autoclosure () -> Bool) -> some View {
+        redacted(reason: condition() ? .placeholder : [])
     }
 }

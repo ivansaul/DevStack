@@ -90,7 +90,7 @@ struct MarkdownView: View {
 #Preview {
     NavigationStack {
         ScrollView {
-            MarkdownView(content: Cheatsheet.preview.sections.first!.content)
+            MarkdownView(content: SectionSheet.preview.content)
         }
         .navigationTitle("Getting Started")
         .scrollIndicators(.hidden)

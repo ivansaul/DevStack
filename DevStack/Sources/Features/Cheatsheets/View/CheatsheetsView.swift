@@ -25,7 +25,7 @@ struct CheatsheetsView: View {
                         title: cheatsheet.title,
                         leadingIcon: .url(cheatsheet.icon),
                         trailingIcon: "chevron.right",
-                        backgroundIconColor: Color(hex: cheatsheet.background)
+                        backgroundIconColor: Color(hex: cheatsheet.background ?? "")
                     )
                 }
             }
@@ -39,7 +39,7 @@ struct CheatsheetsView: View {
         .autocorrectionDisabled(true)
         .backgroundApp()
         .navigationDestination(for: Cheatsheet.self) { cheatsheet in
-            CheatsheetContentView(cheatsheet: cheatsheet)
+            CheatsheetContentView(id: cheatsheet.id)
         }
         .task {
             await cheatsheetsViewModel.fetchCheatSheets()

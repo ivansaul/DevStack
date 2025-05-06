@@ -26,6 +26,7 @@ extension Container {
 
     var cheatsheetsDataService: Factory<CheatsheetsDataServiceProtocol> {
         self { CheatsheetsDataService() }
+            .onPreview { MockCheatsheetsDataService() }
             .shared
     }
 
@@ -39,6 +40,10 @@ extension Container {
     var cheatsheetsViewModel: Factory<CheatsheetsViewModel> {
         self { CheatsheetsViewModel(cheatsheetsDataService: self.cheatsheetsDataService()) }
             .cached
+    }
+
+    var cheatsheetContentViewModel: ParameterFactory<String, CheatsheetContentViewModel> {
+        self { CheatsheetContentViewModel(sheetID: $0, cheatsheetsDataService: self.cheatsheetsDataService()) }
     }
 
     var appThemeViewModel: Factory<AppThemeViewModel> {

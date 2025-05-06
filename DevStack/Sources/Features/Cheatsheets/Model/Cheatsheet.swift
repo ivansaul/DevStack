@@ -26,4 +26,21 @@ struct SectionSheet: Codable, Hashable {
 }
 
 extension Cheatsheet {
+    static let placeholder: Self = .init(
+        id: String(repeating: " ", count: Int.random(in: 1 ... 100)),
+        title: String(repeating: " ", count: Int.random(in: 7 ... 12)),
+        tags: Array(repeating: "        ", count: 3),
+        categories: Array(repeating: "        ", count: 3),
+        background: "#8E8E93",
+        icon: " ",
+        intro: "​" + String(repeating: " ", count: 80) + "​",
+        sections: (1 ... 10)
+            .map { _ in Int.random(in: 15 ... 20) }
+            .map {
+                SectionSheet(
+                    title: String(repeating: " ", count: $0),
+                    content: String(repeating: " ", count: Int.random(in: 50 ... 500))
+                )
+            }
+    )
 }

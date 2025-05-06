@@ -10,7 +10,13 @@
 import Foundation
 
 class MockCheatsheetsDataService: CheatsheetsDataServiceProtocol {
+    private let mockData: [Cheatsheet] = .preview
+
     func fetchCheatsheets() async throws -> [Cheatsheet] {
-        [Cheatsheet].preview
+        mockData
+    }
+
+    func fetchCheatsheet(byID id: String) async throws -> Cheatsheet {
+        mockData.first { $0.id == id } ?? .placeholder
     }
 }
