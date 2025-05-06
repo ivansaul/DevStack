@@ -10,14 +10,14 @@
 import Foundation
 
 struct Cheatsheet: Identifiable, Codable, Hashable {
-    let name: String
+    let id: String
     let title: String
-    let tags: [String]
-    let categories: [String]
-    let background: String
+    let tags: [String]?
+    let categories: [String]?
+    let background: String?
     let icon: String
-    let intro: String
-    let sections: [SectionSheet]
+    let intro: String?
+    let sections: [SectionSheet]?
 }
 
 struct SectionSheet: Codable, Hashable {
@@ -26,7 +26,4 @@ struct SectionSheet: Codable, Hashable {
 }
 
 extension Cheatsheet {
-    var id: String {
-        self.name
-    }
 }
